@@ -1,12 +1,11 @@
+class Node(var data: Int, var next: Node? = null)
 
-class Node(var data: Int, var next: Node? = null) // single linked list
-
-fun insert(prev: Node?, new: Node?) { // push
+fun insert(prev: Node?, new: Node?) {
     new?.next = prev?.next
     prev?.next = new
 }
 
-fun remove(head: Node?, removal: Node?) { // pop
+fun remove(head: Node?, removal: Node?) {
     if (head === removal)
         head?.next = null
     else {

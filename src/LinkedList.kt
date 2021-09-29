@@ -1,6 +1,4 @@
-package linkedList
-
-open class Node(var data: String, var next: Node? = null) {
+class Node(var data: String, var next: Node? = null) {
 
     fun insert(prev: Node?, new: Node?) {
         new?.next = prev?.next

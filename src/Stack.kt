@@ -1,5 +1,7 @@
 package stack
 
+// Stack is based on standard kotlin list
+
 class Stack {
     private val data = mutableListOf<String>()
     val size get() = data.size

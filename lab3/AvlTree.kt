@@ -8,8 +8,24 @@ class AvlTree {
 
     private var root: Node? = null
 
-    fun insert(key: Int) {
-        TODO()
+    fun insert(key: Int): Boolean { // false в случае, если в дереве уже есть нода с таким же key
+        if (root == null) root = Node(key, null)
+        else {
+            var n: Node? = root
+            while (true) {
+                if (n!!.key == key) return false; // нашли ноду с одинаковым key
+                var parent: Node? = n
+                val goLeft = n.key > key
+                n = if (goLeft) n.left else n.right
+                if (n == null) { // дошли в самый низ
+                    if (goLeft) parent!!.left = Node(key, parent)
+                    else parent!!.right = Node(key, parent)
+                    balance(parent)
+                    break
+                }
+            }
+        }
+        return true
     }
 
     fun delete(toDelKey: Int) {
